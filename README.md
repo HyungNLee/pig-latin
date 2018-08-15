@@ -2,7 +2,7 @@
 
 #### Pig Latin Translator Webpage, 8.10.2018
 
-#### By Hyung Lee and Regina N
+#### By Hyung Lee and Regina Nurieva
 
 ## Description
 
@@ -33,13 +33,14 @@ A website that translates words and sentences to Pig Latin. Used to practice Beh
 
 ## Setup/Installation Requirements
 
-* Clone this repository from https://github.com/HyungNLee/leap-year.git
+* Clone this repository from https://github.com/HyungNLee/pig-latin.git
   * jQuery and Bootstrap already included.
 * Open up the folder and open up index.html.
 
 ## Support and contact details
 
 Hyung Lee - hyungnaelee@gmail.com
+Regina Nurieva - reggi.nurieva@gmail.com
 
 ## Technologies Used
 
@@ -63,4 +64,4 @@ jQuery
 
 This software is licensed under the MIT license.
 
-Copyright (c) 2018 **Hyung Lee**
+Copyright (c) 2018 **Hyung Lee** **Regina Nurieva**
