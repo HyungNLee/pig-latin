@@ -31,6 +31,9 @@ function ifVowel(string) {
   if (string.length === 1) {
     string = string + "ay";
     return string;
+  } else if (string.length > 1) {
+    string = string + "yay";
+    return string;
   }
 }
 
@@ -41,7 +44,7 @@ function ifCon(string) {
   }
 }
 
-
+// var newString = string.substr(1, string.length-1);
 
 $(document).ready(function() {
 
