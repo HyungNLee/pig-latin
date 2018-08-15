@@ -6,7 +6,8 @@ function translate(string) {
     returnString = ifVowel(string);
     alert(returnString);
   } else if (checkStarting(string) === "consonant") {
-
+    returnString = ifCon(string);
+    alert(returnString);
   }
 }
 
@@ -29,6 +30,13 @@ function checkStarting(string) {
 function ifVowel(string) {
   if (string.length === 1) {
     string = string + "ay";
+    return string;
+  }
+}
+
+//Function for string starting with consonant
+function ifCon(string) {
+  if (string.length === 1) {
     return string;
   }
 }
