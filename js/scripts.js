@@ -42,9 +42,25 @@ function ifCon(string) {
   if (string.length === 1) {
     return string;
   } else if (string.length > 1) {
-    var newString = string.substr(1, string.length-1);
-    newString = newString + string.charAt(0) + "ay";
-    return newString;
+    for (i = 0; i < string.length; i++) {
+      alert(i);
+      if (checkIfVowel(string, i)) {
+        var endString = string.substr(i);
+        var begString = string.substr(0, i);
+        alert(begString);
+        var returnString = endString + begString + "ay";
+        return returnString;
+      }
+    }
+  }
+}
+
+//Function for checking if it a vowel
+function checkIfVowel(string, i) {
+  if (string.charAt(i) === "a" || string.charAt(i) === "e" || string.charAt(i) === "i" || string.charAt(i) === "o" || string.charAt(i) === "u") {
+    return true;
+  } else {
+    return false;
   }
 }
 
