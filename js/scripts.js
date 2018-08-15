@@ -1,13 +1,11 @@
-var vowelArray=["a","u","i","o","e","A","U","I","O","E"];
-
 function translate(string) {
   var returnString;
   if (hasNumbers(string)) {
     return string;
-  } else if (checkStarting(string) === "vowel") {
+  } else if (isVowel(string)) {
     returnString = ifVowel(string);
     return returnString;
-  } else if (checkStarting(string) === "consonant") {
+  } else if (isCon(string)) {
     returnString = ifCon(string);
     return returnString;
   }
@@ -19,9 +17,21 @@ function hasNumbers(string) {
   return regex.test(string);
 }
 
+//Check if string starts with a vowel
+function isVowel(string) {
+  var regex = /[aeiou]/i;
+  return regex.test(string.charAt(0));
+}
+
+//Check if string starts with a consonant
+function isCon(string) {
+  var regex = /[^aeiou]/i;
+  return regex.test(string.charAt(0));
+}
+
 //Checks if starting character is a vowel or consonant
 function checkStarting(string) {
-  if (vowelArray.includes(string.charAt(0))) {
+  if (isVowel(string.charAt(0))) {
     return "vowel"
   } else {
     return "consonant"
@@ -60,7 +70,9 @@ function ifCon(string) {
 
 //Checks if consonant ends in "qu"
 function quCheck(string, i){
-  if (string.substr(i - 1, 2) === "qu") {
+  var testString = string.substr(i - 1, 2);
+  var regex = RegExp('qu', 'i');
+  if (regex.test(testString)) {
     return true;
   } else {
     return false;
@@ -69,7 +81,7 @@ function quCheck(string, i){
 
 //Function for checking if it a vowel
 function checkIfVowel(string, i) {
-  if (vowelArray.includes(string.charAt(i))) {
+  if (isVowel(string.charAt(i))) {
     return true;
   } else {
     return false;
@@ -86,12 +98,14 @@ function eachWord(array){
 
   var translatedString = translatedArray.join(" ");
   translatedString = translatedString.toLowerCase();
+
+  // substr(1) from the position 1 it takes the value of that string
   var returnString = translatedString.charAt(0).toUpperCase() + translatedString.substr(1);
 
   return returnString;
 }
 
-
+//Front End__
 $(document).ready(function() {
 
   $("#formOne").submit(function(event) {
