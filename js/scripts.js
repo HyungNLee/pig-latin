@@ -1,3 +1,5 @@
+var vowelArray=["a","u","i","o","e"];
+
 function translate(string) {
   var returnString;
   if (hasNumbers(string)) {
@@ -19,7 +21,7 @@ function hasNumbers(string) {
 
 //Checks if starting character is a vowel or consonant
 function checkStarting(string) {
-  if (string.charAt(0) === "a" || string.charAt(0) === "e" || string.charAt(0) === "i" || string.charAt(0) === "o" || string.charAt(0) === "u") {
+  if (vowelArray.includes(string.charAt(0))) {
     return "vowel"
   } else {
     return "consonant"
@@ -43,11 +45,12 @@ function ifCon(string) {
     return string;
   } else if (string.length > 1) {
     for (i = 0; i < string.length; i++) {
-      alert(i);
       if (checkIfVowel(string, i)) {
+        if (quCheck(string, i)) {
+          i = i + 1;
+        }
         var endString = string.substr(i);
         var begString = string.substr(0, i);
-        alert(begString);
         var returnString = endString + begString + "ay";
         return returnString;
       }
@@ -55,9 +58,17 @@ function ifCon(string) {
   }
 }
 
+function quCheck(string, i){
+  if (string.substr(i - 1, 2) === "qu") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 //Function for checking if it a vowel
 function checkIfVowel(string, i) {
-  if (string.charAt(i) === "a" || string.charAt(i) === "e" || string.charAt(i) === "i" || string.charAt(i) === "o" || string.charAt(i) === "u") {
+  if (vowelArray.includes(string.charAt(i))) {
     return true;
   } else {
     return false;
