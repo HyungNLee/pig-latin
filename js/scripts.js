@@ -41,10 +41,13 @@ function ifVowel(string) {
 function ifCon(string) {
   if (string.length === 1) {
     return string;
+  } else if (string.length > 1) {
+    var newString = string.substr(1, string.length-1);
+    newString = newString + string.charAt(0) + "ay";
+    return newString;
   }
 }
 
-// var newString = string.substr(1, string.length-1);
 
 $(document).ready(function() {
 
