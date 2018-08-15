@@ -1,4 +1,4 @@
-var vowelArray=["a","u","i","o","e"];
+var vowelArray=["a","u","i","o","e","A","U","I","O","E"];
 
 function translate(string) {
   var returnString;
@@ -6,10 +6,10 @@ function translate(string) {
     return string;
   } else if (checkStarting(string) === "vowel") {
     returnString = ifVowel(string);
-    alert(returnString);
+    return returnString;
   } else if (checkStarting(string) === "consonant") {
     returnString = ifCon(string);
-    alert(returnString);
+    return returnString;
   }
 }
 
@@ -58,6 +58,7 @@ function ifCon(string) {
   }
 }
 
+//Checks if consonant ends in "qu"
 function quCheck(string, i){
   if (string.substr(i - 1, 2) === "qu") {
     return true;
@@ -75,16 +76,31 @@ function checkIfVowel(string, i) {
   }
 }
 
+//Runs translate function for each word in input array
+function eachWord(array){
+  var translatedArray = [];
+
+  array.forEach(function(word) {
+    translatedArray.push(translate(word));
+  })
+
+  var translatedString = translatedArray.join(" ");
+  translatedString = translatedString.toLowerCase();
+  var returnString = translatedString.charAt(0).toUpperCase() + translatedString.substr(1);
+
+  return returnString;
+}
+
 
 $(document).ready(function() {
 
   $("#formOne").submit(function(event) {
     event.preventDefault();
     var userInput = $("#inputBox").val();
-    alert(userInput);
-    translate(userInput);
+    var inputArray = userInput.split(" ");
+
+    var outputResult = eachWord(inputArray);
+
+    $(".output").text(outputResult);
   })
-
-
-  var outputResult;
 })
